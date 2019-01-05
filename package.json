@@ -1,16 +1,30 @@
 {
-  "name": "expressts-boilerpate",
-  "version": "0.0.0",
-  "private": true,
+  "name": "expressts-boilerplate",
+  "version": "0.0.1",
+  "description": "A Minimal Express + Typescript Boilerplate",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "build-ts": "tsc",
+    "start": "npm run serve",
+    "serve": "NODE_ENV=prod node dist/server.js",
+    "watch-node": "NODE_ENV=dev nodemon dist/server.js",
+    "watch-ts": "tsc -w",
+    "test": "echo \" No tests configured\" && exit 1",
+    "dev": "concurrently --kill-others \"npm:watch-ts\" \"npm:watch-node\"",
+    "prod": "npm run build-ts && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1",
+    "@types/dotenv": "^6.1.0",
+    "@types/express": "^4.16.0"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3"
   }
 }
